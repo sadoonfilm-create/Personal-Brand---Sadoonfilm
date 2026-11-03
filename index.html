@@ -463,8 +463,8 @@ html[dir="rtl"] .lang{font-family:var(--font-body)}
       <div class="tools">
         <div class="chips" id="chips" role="group"></div>
         <div class="views" role="group">
-          <button id="vList" aria-pressed="true" data-t="v_list">قائمة</button>
-          <button id="vGrid" aria-pressed="false" data-t="v_grid">شبكة</button>
+          <button id="vGrid" aria-pressed="true" data-t="v_grid">شبكة</button>
+          <button id="vList" aria-pressed="false" data-t="v_list">قائمة</button>
         </div>
       </div>
       <ul class="index" id="index"></ul>
@@ -779,7 +779,7 @@ html[dir="rtl"] .lang{font-family:var(--font-body)}
   allBtn.onclick=function(){showAll(allWrap.hidden)};
 
   /* index + grid */
-  var cur=-1,view="list",chips=$("#chips"),idx=$("#index"),grid=$("#grid"),peek=$("#peek"),peekImg=peek.querySelector("img");
+  var cur=-1,view="grid",chips=$("#chips"),idx=$("#index"),grid=$("#grid"),peek=$("#peek"),peekImg=peek.querySelector("img");
   function chip(label,val,count){
     var b=document.createElement("button");b.className="chipb";b.setAttribute("aria-pressed",val===cur);
     b.innerHTML=label+"<i>"+num(count)+"</i>";b.onclick=function(){cur=val;render()};return b;
