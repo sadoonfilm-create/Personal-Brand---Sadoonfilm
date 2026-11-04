@@ -135,6 +135,9 @@ section,#gateway,#allWrap{scroll-margin-top:calc(84px + env(safe-area-inset-top,
 .strip{border-block:1px solid var(--line);overflow:hidden;background:var(--ink-2)}
 .strip-in{display:flex;width:max-content;animation:slide 40s linear infinite}
 .strip span{font-family:var(--font-display);font-weight:800;font-size:1.15rem;padding:1.1rem 2.2rem;color:var(--mut);white-space:nowrap;display:flex;align-items:center;gap:4.4rem}
+.strip span img{height:30px;width:auto;opacity:.65}
+.strip span img.tall{height:46px}
+.strip span img.mid{height:36px}
 .strip span::after{content:"";width:9px;height:13px;background:var(--violet);border-radius:60% 40% 55% 45%}
 @keyframes slide{to{transform:translateX(50%)}}
 
@@ -211,15 +214,22 @@ dialog::backdrop{background:rgba(8,7,12,.86);backdrop-filter:blur(6px)}
 
 /* about */
 .about{background:var(--ink-2)}
-.about-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(1.2rem,6vw,5rem);align-items:start}
 .lead{font-size:clamp(1.2rem,2.6vw,1.6rem);font-family:var(--font-display);font-weight:500;line-height:1.7;margin-top:1.2rem}
 .about p.t{color:#cfc9e0;margin-top:1rem;max-width:36rem}
-.partners{border:1px solid var(--line);border-radius:22px;padding:1.6rem;background:var(--ink)}
-.partners h3{font-size:1.05rem;color:var(--gold)}
-.partners ul{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-direction:column}
-.partners li{padding:.7rem 0;border-bottom:1px solid var(--line);font-family:var(--font-display);font-weight:800;font-size:1.15rem;display:flex;justify-content:space-between;gap:1rem}
-.partners li:last-child{border:0}
-.partners li span{color:var(--mut);font-family:var(--font-body);font-weight:400;font-size:.85rem}
+.about-grid h2{margin-bottom:0}
+.about-grid .t:first-child{margin-top:0}
+.logos{margin-top:clamp(2.6rem,5vw,3.6rem)}
+.logos-h{display:flex;align-items:center;gap:1rem;font-family:var(--font-body);font-weight:500;font-size:1rem;color:var(--gold);margin-bottom:1.2rem}
+.logos-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.logo-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.9rem}
+.logo-grid li{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:1.2rem 1.4rem;border:1px solid var(--line);border-radius:20px;
+  background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(124,88,230,.16),transparent 70%),var(--ink);transition:border-color .3s,transform .3s,box-shadow .3s}
+.logo-grid li:hover{border-color:rgba(140,109,224,.6);transform:translateY(-4px);box-shadow:0 16px 40px rgba(91,63,168,.28)}
+.logo-grid img{width:auto;height:auto;max-width:100%;max-height:58px;opacity:.85;transition:opacity .3s}
+.logo-grid li:hover img{opacity:1}
+.logo-grid img.tall{max-height:88px}
+.logo-grid img.mid{max-height:70px}
 .beliefs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:3rem}
 .beliefs div{border-top:2px solid var(--violet);padding-top:1.1rem}
 .beliefs h3{font-size:1.25rem}
@@ -314,6 +324,15 @@ dialog::backdrop{background:rgba(8,7,12,.86);backdrop-filter:blur(6px)}
   .posters{grid-template-columns:minmax(0,1fr);max-width:420px;margin-inline:auto}
   .row{grid-template-columns:2.4rem 1fr 1.5rem}
   .row .ct{display:none}
+}
+@media (max-width:820px){
+  .logo-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:.7rem}
+  .logo-grid li{grid-column:span 2;padding:.9rem}
+  .logo-grid li:nth-child(4){grid-column:2/span 2}
+  .logo-grid li:nth-child(5){grid-column:4/span 2}
+  .logo-grid img{max-height:40px}
+  .logo-grid img.tall{max-height:62px}
+  .logo-grid img.mid{max-height:50px}
 }
 @media (max-width:520px){
   .steps{grid-template-columns:minmax(0,1fr)}
@@ -480,19 +499,21 @@ html[dir="ltr"].motion .beliefs div::after{transform-origin:left}
       <div>
         <h2 class="h2" data-t="a_h">من أنا؟</h2>
         <div class="lead" data-t="a_lead">قصص تجعل المشاهد يعيش الشعور.</div>
+      </div>
+      <div>
         <p class="t" data-t="a_p1">أنا سعيد إسماعيل (سعدون). أحوّل اللقطات إلى لحظات جميلة، وأصنع أفلاماً قصيرة تجعل المشاهد يعيش الشعور لا يشاهده فقط. اشتغلت مع جهات حكومية وجمعيات وعلامات تجارية، وشريك موثوق للعديد من شركات الإنتاج.</p>
         <p class="t" data-t="a_p2">أغلب المقاطع تفقد المشاهد في الثانية الثالثة. شغلي أن تكسبه فيها، وتمسكه حتى آخر لقطة.</p>
       </div>
-      <div class="partners">
-        <h3 data-t="a_partners">شريك موثوق لشركات الإنتاج</h3>
-        <ul>
-          <li data-t="p1">شبّاك</li>
-          <li data-t="p2">وسم <span>wasm</span></li>
-          <li data-t="p3">عباقرة الاستدامة</li>
-          <li>NOB <span>Marketing Solutions</span></li>
-          <li>MORPH <span>Media Services</span></li>
-        </ul>
-      </div>
+    </div>
+    <div class="logos">
+      <h3 class="logos-h" data-t="a_partners">شريك موثوق لشركات الإنتاج</h3>
+      <ul class="logo-grid">
+        <li><img src="img/partners/morph.png" alt="MORPH" width="490" height="150" loading="lazy"></li>
+        <li><img src="img/partners/nob.png" alt="NOB" width="354" height="187" loading="lazy"></li>
+        <li><img class="tall" src="img/partners/abaqra.png" alt="شركة عباقرة الاستدامة" width="338" height="220" loading="lazy"></li>
+        <li><img src="img/partners/wasm.png" alt="وسم" width="390" height="182" loading="lazy"></li>
+        <li><img class="mid" src="img/partners/shubbak.png" alt="شبّاك" width="292" height="220" loading="lazy"></li>
+      </ul>
     </div>
     <div class="beliefs">
       <div><h3 data-t="b1h">الشعور قبل الشكل</h3><p data-t="b1p">المونتير يسأل: وش اللقطات اللي عندي؟ وأنا أسأل: وش لازم يحس فيه المشاهد؟</p></div>
@@ -815,8 +836,8 @@ html[dir="ltr"].motion .beliefs div::after{transform-origin:left}
 
   /* partners strip */
   function renderStrip(){
-    var partners=L(["شبّاك","وسم","عباقرة الاستدامة","NOB Marketing Solutions","MORPH Media Services"],["Shubbak","Wasm","Abaqra Sustainability","NOB Marketing Solutions","MORPH Media Services"]),mk="";
-    for(var r=0;r<4;r++)partners.forEach(function(p){mk+="<span>"+p+"</span>"});
+    var partners=["morph","nob","abaqra","wasm","shubbak"],mk="";
+    for(var r=0;r<4;r++)partners.forEach(function(p){mk+='<span><img src="img/partners/'+p+'.png" alt=""'+(p==="abaqra"?' class="tall"':p==="shubbak"?' class="mid"':'')+'></span>'});
     $("#strip").innerHTML=mk;
   }
 
@@ -1000,7 +1021,7 @@ html[dir="ltr"].motion .beliefs div::after{transform-origin:left}
     });
   }
   tag("section .h2,.about .lead,.about .t,.kicker,.band,.all-toggle","",0);
-  tag(".partners","left");
+  tag(".logos-h","",0);tag(".logo-grid li","",0.08);
   tag(".beliefs > div","",0.12);
   tag(".steps .step","",0.12);
   tag(".svc article","",0.12);
